@@ -6,10 +6,6 @@ plugins {
 group = "dev.ujhhgtg"
 version = "unspecified"
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     compileOnly("org.jetbrains.kotlin:kotlin-compiler-embeddable:2.3.10")
     compileOnly("com.google.auto.service:auto-service-annotations:1.1.1")

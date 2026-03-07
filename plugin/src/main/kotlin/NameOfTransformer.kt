@@ -12,7 +12,7 @@ class NameOfTransformer(private val context: IrPluginContext) : IrElementTransfo
 
     @OptIn(UnsafeDuringIrConstructionAPI::class)
     override fun visitCall(expression: IrCall): IrExpression {
-        if (expression.symbol.owner.kotlinFqName.asString() == "dev.ujhhgtg.nameof") {
+        if (expression.symbol.owner.kotlinFqName.asString() == "dev.ujhhgtg.nameof.nameof") {
             val name = when (val argument = expression.arguments[0]) {
                 is IrPropertyReference -> argument.symbol.owner.name.asString()
                 is IrClassReference -> (argument.symbol.owner as IrDeclaration).getNameWithAssert().asString()

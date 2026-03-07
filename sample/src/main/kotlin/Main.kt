@@ -1,4 +1,4 @@
-package dev.ujhhgtg
+package dev.ujhhgtg.nameof
 
 class ClassName
 

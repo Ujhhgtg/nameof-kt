@@ -38,3 +38,9 @@ fun main() {
     println("object compat: ${nameof(ObjectName)}")
 }
 ```
+
+
+## Limitations
+
+You cannot mark a `val CONST_STRING = nameof(ClassName::class)` as `const`, however for `private val`s, at the bytecode level,
+`private const val` is completely equal to `private val`.

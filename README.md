@@ -42,5 +42,9 @@ fun main() {
 
 ## Limitations
 
-You cannot mark a `val CONST_STRING = nameof(ClassName::class)` as `const`, however for `private val`s, at the bytecode level,
-`private const val` is completely equal to `private val`.
+- You cannot mark a `val CONST_STRING = nameof(ClassName::class)` as `const`, however for `private val`s,
+  at the bytecode level, `private const val` is completely equal to `private val`.
+
+- The stub `nameof()` function's argument type is constrained at compile-time instead of lint-time,
+  since compatability is provided for `object` types, therefore its argument type is `Any` instead of
+  `KClass`/`KFunction`/`KProperty`.

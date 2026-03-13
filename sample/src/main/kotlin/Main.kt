@@ -11,11 +11,14 @@ object ObjectName
 
 fun main() {
     fun localFunctionName() {}
+    val variableName = ""
 
     println("class: ${nameof(ClassName::class)}")
     println("function: ${nameof(::functionName)}")
     println("local function: ${nameof(::localFunctionName)}")
+    println("function compat: ${nameof(functionName())}")
     println("property: ${nameof(::propertyName)}")
+    println("property compat: ${nameof(propertyName)}")
     println("object: ${nameof(ObjectName::class)}")
-    println("object compat: ${nameof(ObjectName)}")
+    println("variable: ${nameof(variableName)}")
 }

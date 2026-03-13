@@ -17,7 +17,13 @@ class NameOfTransformer(private val context: IrPluginContext) : IrElementTransfo
                 is IrPropertyReference -> argument.symbol.owner.name.asString()
                 is IrClassReference -> (argument.symbol.owner as IrDeclaration).getNameWithAssert().asString()
                 is IrFunctionReference -> argument.symbol.owner.name.asString()
-                is IrGetObjectValue -> argument.symbol.owner.name.asString() // compat for object
+                is IrGetObjectValue -> argument.symbol.owner.name.asString()
+                is IrCall -> argument.symbol.owner.name.asString().run {
+                    if (startsWith("<get-") && endsWith(">"))
+                        substring(5, length - 1)
+                    else this
+                }
+                is IrGetValue -> argument.symbol.owner.name.asString()
                 null -> error("Unexpected null argument")
                 else -> error("Unexpected argument type ${argument::class}")
             }
